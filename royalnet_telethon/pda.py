@@ -87,11 +87,17 @@ class TelethonPDA:
         if self.mode == TelethonPDAMode.GLOBAL:
             return None
         elif self.mode == TelethonPDAMode.USER:
-            return event.from_id.user_id
+            if event.from_id:
+                return event.from_id.user_id
+            else:
+                return event.peer_id.user_id
         elif self.mode == TelethonPDAMode.CHAT:
             return event.chat_id
         elif self.mode == TelethonPDAMode.CHAT_USER:
-            return event.chat_id, event.from_id.user_id
+            if event.from_id:
+                return event.chat_id, event.from_id.user_id
+            else:
+                return event.chat_id, event.peer_id.user_id
         else:
             raise TypeError("Invalid mode")
 
