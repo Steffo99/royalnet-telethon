@@ -54,13 +54,13 @@ class TelethonPDA:
 
         self.conversations: t.List[engi.Conversation] = []
         """
-        A :class:`list` of conversations to run before a new event is :meth:`.put` in a 
+        A :class:`list` of conversations to run before a new _event is :meth:`.put` in a 
         :class:`~royalnet.engineer.dispenser.Dispenser`.
         """
 
         self.client: tt.TelegramClient = tt.TelegramClient("bot", api_id=tg_api_id, api_hash=tg_api_hash)
         """
-        The :mod:`telethon` Telegram client that this PDA will use to interface with Telegram.
+        The :mod:`telethon` Telegram _client that this PDA will use to interface with Telegram.
         """
 
         self._register_events()
@@ -76,12 +76,12 @@ class TelethonPDA:
         self.client.add_event_handler(callback=self._message_new, event=tt.events.NewMessage())
         self.client.add_event_handler(callback=self._message_edit, event=tt.events.MessageEdited())
         self.client.add_event_handler(callback=self._message_delete, event=tt.events.MessageDeleted())
-        # self.client.add_event_handler(callback=self._message_read, event=tt.events.MessageRead())
-        # self.client.add_event_handler(callback=self._chat_action, event=tt.events.ChatAction())
-        # self.client.add_event_handler(callback=self._user_update, event=tt.events.UserUpdate())
-        # self.client.add_event_handler(callback=self._callback_query, event=tt.events.CallbackQuery())
-        # self.client.add_event_handler(callback=self._inline_query, event=tt.events.InlineQuery())
-        # self.client.add_event_handler(callback=self._album, event=tt.events.Album())
+        # self._client.add_event_handler(callback=self._message_read, _event=tt.events.MessageRead())
+        # self._client.add_event_handler(callback=self._chat_action, _event=tt.events.ChatAction())
+        # self._client.add_event_handler(callback=self._user_update, _event=tt.events.UserUpdate())
+        # self._client.add_event_handler(callback=self._callback_query, _event=tt.events.CallbackQuery())
+        # self._client.add_event_handler(callback=self._inline_query, _event=tt.events.InlineQuery())
+        # self._client.add_event_handler(callback=self._album, _event=tt.events.Album())
 
     def _determine_key(self, event: tlc.message.Message):
         if self.mode == TelethonPDAMode.GLOBAL:
@@ -186,13 +186,13 @@ class TelethonPDA:
             log.debug(f"Creating run task for: {conversation!r}")
             loop.create_task(dispenser.run(conversation, _pda=self), name=f"{repr(conversation)}")
 
-        log.debug("Running a event loop cycle...")
+        log.debug("Running a _event loop cycle...")
         await asyncio.sleep(0)
 
         log.debug(f"Putting projectile {proj!r} in dispenser {dispenser!r}...")
         await dispenser.put(proj)
 
-        log.debug("Awaiting another event loop cycle...")
+        log.debug("Awaiting another _event loop cycle...")
         await asyncio.sleep(0)
 
 

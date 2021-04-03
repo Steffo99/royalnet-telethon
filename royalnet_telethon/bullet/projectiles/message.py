@@ -7,40 +7,40 @@ from ..contents.__init__ import TelegramMessage
 class TelegramMessageReceived(p.MessageReceived):
     def __init__(self, event: tlc.Message):
         super().__init__()
-        self.event: tlc.Message = event
+        self._event: tlc.Message = event
 
     def __hash__(self) -> int:
-        return self.event.id
+        return self._event.id
 
     @ap.async_cached_property
     async def message(self) -> TelegramMessage:
-        return TelegramMessage(msg=self.event)
+        return TelegramMessage(msg=self._event)
 
 
 class TelegramMessageEdited(p.MessageEdited):
     def __init__(self, event: tlc.Message):
         super().__init__()
-        self.event: tlc.Message = event
+        self._event: tlc.Message = event
 
     def __hash__(self) -> int:
-        return self.event.id
+        return self._event.id
 
     @ap.async_cached_property
     async def message(self) -> TelegramMessage:
-        return TelegramMessage(msg=self.event)
+        return TelegramMessage(msg=self._event)
 
 
 class TelegramMessageDeleted(p.MessageDeleted):
     def __init__(self, event: tlc.Message):
         super().__init__()
-        self.event: tlc.Message = event
+        self._event: tlc.Message = event
 
     def __hash__(self) -> int:
-        return self.event.id
+        return self._event.id
 
     @ap.async_cached_property
     async def message(self) -> TelegramMessage:
-        return TelegramMessage(msg=self.event)
+        return TelegramMessage(msg=self._event)
 
 
 __all__ = (
