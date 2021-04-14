@@ -43,7 +43,7 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         return "telethon"
 
     def __init__(self, name: str, tg_api_id: int, tg_api_hash: str, bot_username: str, bot_token: str,
-                 mode: TelethonPDAMode = TelethonPDAMode.CHAT_USER, extensions = None):
+                 mode: TelethonPDAMode = TelethonPDAMode.CHAT_USER, extensions=None):
 
         super().__init__(name=name, extensions=extensions)
 
@@ -79,6 +79,11 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         """
 
         self.bot_token: str = bot_token
+        """
+        .. todo:: Document this.
+        """
+
+        self.error_reporting_chat: int = error_reporting_chat
         """
         .. todo:: Document this.
         """
@@ -167,6 +172,14 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
             await client.run_until_disconnected()
         finally:
             await client.disconnect()
+
+    async def _handle_conversation_exc(
+            self,
+            dispenser: engi.Dispenser,
+            conv: engi.ConversationProtocol,
+            exception: Exception,
+    ) -> None:
+        self.log.error(f"Unhandled exception in {dispenser} running {conv}: {exception}")
 
 
 __all__ = (
