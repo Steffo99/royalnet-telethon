@@ -83,11 +83,6 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         .. todo:: Document this.
         """
 
-        self.error_reporting_chat: int = error_reporting_chat
-        """
-        .. todo:: Document this.
-        """
-
     def _register_events(self, client):
         """
         .. todo:: Document this.
