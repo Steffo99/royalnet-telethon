@@ -32,12 +32,6 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
     .. todo:: Document this.
     """
 
-    def _partialcommand_pattern(self, partial) -> str:
-        if partial.syntax:
-            return rf"^/{{name}}(?:@{self.bot_username})?\s+{{syntax}}$"
-        else:
-            return rf"^/{{name}}(?:@{self.bot_username})?$"
-
     @property
     def namespace(self):
         return "telethon"
@@ -129,7 +123,7 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         .. todo:: Document this.
         """
 
-        await self.put_projectile(
+        await self.put(
             key=self._determine_key(event),
             projectile=TelegramMessageReceived(event=event),
         )
@@ -139,7 +133,7 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         .. todo:: Document this.
         """
 
-        await self.put_projectile(
+        await self.put(
             key=self._determine_key(event),
             projectile=TelegramMessageEdited(event=event),
         )
@@ -149,7 +143,7 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         .. todo:: Document this.
         """
 
-        await self.put_projectile(
+        await self.put(
             key=self._determine_key(event),
             projectile=TelegramMessageDeleted(event=event),
         )
@@ -167,14 +161,6 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
             await client.run_until_disconnected()
         finally:
             await client.disconnect()
-
-    async def _handle_conversation_exc(
-            self,
-            dispenser: engi.Dispenser,
-            conv: engi.ConversationProtocol,
-            exception: Exception,
-    ) -> None:
-        self.log.error(f"Unhandled exception in {dispenser} running {conv}: {exception}")
 
 
 __all__ = (
