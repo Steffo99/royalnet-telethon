@@ -37,9 +37,9 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
         return "telethon"
 
     def __init__(self, name: str, tg_api_id: int, tg_api_hash: str, bot_username: str, bot_token: str,
-                 mode: TelethonPDAMode = TelethonPDAMode.CHAT_USER, extensions=None):
+                 mode: TelethonPDAMode = TelethonPDAMode.CHAT_USER):
 
-        super().__init__(name=name, extensions=extensions)
+        super().__init__(name=name)
 
         self.dispensers: dict[t.Any, engi.Dispenser] = {}
         """
