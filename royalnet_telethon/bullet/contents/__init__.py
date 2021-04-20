@@ -8,6 +8,7 @@ import telethon.tl.types as tlt
 import telethon.tl.custom as tlc
 import async_property as ap
 import datetime
+from royalnet_telethon.formatting import tg_html_format
 
 
 class TelegramMessage(co.Message):
@@ -39,7 +40,7 @@ class TelegramMessage(co.Message):
     async def reply(self, *,
                     text: str = None,
                     files: t.List[t.BinaryIO] = None) -> t.Optional[TelegramMessage]:
-        sent = await self._msg.reply(message=text, file=files)
+        sent = await self._msg.reply(message=tg_html_format(text), file=files, parse_mode="HTML")
         return TelegramMessage(msg=sent)
 
 
@@ -59,7 +60,12 @@ class TelegramChannel(co.Channel):
     async def send_message(self, *,
                            text: str = None,
                            files: t.List[t.BinaryIO] = None) -> t.Optional[TelegramMessage]:
-        sent = await self._client.send_message(self._channel, message=text, file=files)
+        sent = await self._client.send_message(
+            self._channel,
+            message=tg_html_format(text),
+            file=files,
+            parse_mode="HTML"
+        )
         return TelegramMessage(msg=sent)
 
 

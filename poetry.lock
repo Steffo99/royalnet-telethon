@@ -284,7 +284,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 
 [[package]]
 name = "royalnet"
-version = "6.5.0"
+version = "6.5.4"
 description = "A multipurpose bot framework"
 category = "main"
 optional = false
@@ -747,8 +747,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 royalnet = [
-    {file = "royalnet-6.5.0-py3-none-any.whl", hash = "sha256:1c1f0ddb4891d1951bd8fe2e9a4139cc5b3a039d9b2318c0cabd489dc2253ee3"},
-    {file = "royalnet-6.5.0.tar.gz", hash = "sha256:dc4e5a284e8e2f36f259b5fe88e36a5947984c78600fd22e695e62277c787951"},
+    {file = "royalnet-6.5.4-py3-none-any.whl", hash = "sha256:68d30fdd00653a5e79eab2b22a8c5bb16103e08e8674ec8f4b13ff1bdf1d33d2"},
+    {file = "royalnet-6.5.4.tar.gz", hash = "sha256:fbab17b911c2ee200c0f7bfd5d2bcc4d1d3f9771b41ab64a848a08cdd464e3d8"},
 ]
 rsa = [
     {file = "rsa-4.7.2-py3-none-any.whl", hash = "sha256:78f9a9bf4e7be0c5ded4583326e7461e3a3c5aae24073648b4bdfa797d78c9d2"},
