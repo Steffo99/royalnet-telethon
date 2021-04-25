@@ -40,7 +40,7 @@ class TelegramMessage(co.Message):
     async def reply(self, *,
                     text: str = None,
                     files: t.List[t.BinaryIO] = None) -> t.Optional[TelegramMessage]:
-        sent = await self._msg.reply(message=tg_html_format(text), file=files, parse_mode="HTML")
+        sent = await self._msg.reply(message=tg_html_format(text) if text else None, file=files, parse_mode="HTML")
         return TelegramMessage(msg=sent)
 
 
@@ -62,7 +62,7 @@ class TelegramChannel(co.Channel):
                            files: t.List[t.BinaryIO] = None) -> t.Optional[TelegramMessage]:
         sent = await self._client.send_message(
             self._channel,
-            message=tg_html_format(text),
+            message=tg_html_format(text) if text else None,
             file=files,
             parse_mode="HTML"
         )
