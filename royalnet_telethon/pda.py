@@ -41,17 +41,6 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
 
         super().__init__(name=name)
 
-        self.dispensers: dict[t.Any, engi.Dispenser] = {}
-        """
-        The :class:`royalnet.engineer.dispenser.Dispenser`\\ s of this PDA.
-        """
-
-        self.conversations: t.List[engi.Conversation] = []
-        """
-        A :class:`list` of conversations to run before a new _event is :meth:`.put` in a 
-        :class:`~royalnet.engineer.dispenser.Dispenser`.
-        """
-
         self.mode: TelethonPDAMode = mode
         """
         The mode to use for mapping dispensers.
