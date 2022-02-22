@@ -11,6 +11,8 @@ def tg_html_format(string: str) -> str:
     - ``\uE002``: end underline
     - ``\uE015``: start strike
     - ``\uE005``: end strike
+    - ``\uE01F``: start spoiler
+    - ``\uE00F``: end spoiler
     - ``\uE01C``: start single-line code
     - ``\uE00C``: end single-line code
     - ``\uE01D``: start multi-line code
@@ -33,6 +35,8 @@ def tg_html_format(string: str) -> str:
     string = string.replace("\uE001", "</i>")
     string = string.replace("\uE015", "<s>")
     string = string.replace("\uE005", "</s>")
+    string = string.replace("\uE01F", "<tg-spoiler>")
+    string = string.replace("\uE00F", "</tg-spoiler>")
     string = string.replace("\uE012", "<u>")
     string = string.replace("\uE002", "</u>")
     string = string.replace("\uE01C", "<code>")
