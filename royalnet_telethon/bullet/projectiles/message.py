@@ -1,6 +1,6 @@
 from __future__ import annotations
-from ._imports import *
 
+from ._imports import *
 from ..contents.__init__ import TelegramMessage
 
 

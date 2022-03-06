@@ -1,13 +1,14 @@
 from __future__ import annotations
-import royalnet.royaltyping as t
 
-import royalnet.engineer.bullet.casing as c
-import royalnet.engineer.bullet.contents as co
-import telethon as tt
-import telethon.tl.types as tlt
-import telethon.tl.custom as tlc
-import async_property as ap
 import datetime
+
+import async_property as ap
+import royalnet.engineer.bullet.contents as co
+import royalnet.royaltyping as t
+import telethon as tt
+import telethon.tl.custom as tlc
+import telethon.tl.types as tlt
+
 from royalnet_telethon.formatting import tg_html_format
 
 

@@ -3,13 +3,14 @@ The PDA ("main" class) for the :mod:`royalnet_telethon` frontend.
 """
 
 from __future__ import annotations
-import royalnet.royaltyping as t
 
+import enum
 import logging
+
 import royalnet.engineer as engi
+import royalnet.royaltyping as t
 import telethon as tt
 import telethon.tl.custom as tlc
-import enum
 
 from .bullet.projectiles.message import TelegramMessageReceived, TelegramMessageEdited, TelegramMessageDeleted
 
