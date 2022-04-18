@@ -154,5 +154,6 @@ class TelethonPDAImplementation(engi.ConversationListImplementation):
 
 
 __all__ = (
+    "TelethonPDAMode",
     "TelethonPDAImplementation",
 )
